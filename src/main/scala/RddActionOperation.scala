@@ -18,6 +18,7 @@ object RddActionOperation {
      * */
     val wordsArray = Array("hello", "spark", "hello", "world", "hello")
     //Answer your question Q2 :
+
     val wordsRdd = sc.parallelize(wordsArray)
    // WordsRdd.foreach(println)   //pour afficher les résultats
 
@@ -31,6 +32,7 @@ object RddActionOperation {
      * (hello,1)
      */
     //Answer your question Q3 :
+
     val keys = sc.parallelize("1")
     val newWordsRdd = wordsRdd.cartesian(keys)
     // newWordsRdd.foreach(println)   //pour afficher les résultats
@@ -45,6 +47,7 @@ object RddActionOperation {
     val rdd1 = sc.parallelize(Array("coffe", "apple", "animal", "horse", "dog", "horse", "dog"))
     val rdd2 = sc.parallelize(Array("coffe", "cup", "world"))
     //Answer your question Q4 :
+
     val noDuplicateRdd1 = rdd1.distinct()
     val noDuplicateRdd2 = rdd2.distinct()
     val unionRdd = rdd1.union(rdd2)

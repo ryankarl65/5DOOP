@@ -69,7 +69,10 @@ object SuperMacketSalesAnalyze {
      */
     //Answer your question Q7 :
     val dfQ7 = df.withColumn("Date", unix_timestamp(col("Date"),"MM/dd/yyyy").cast(TimestampType))
-    dfQ7.select("Invoice ID","Branch","City","Unit","price","Quantity","Date","Rating").orderBy("Date").show()
+
+    dfQ7.select("Invoice ID","Branch","City","Unit","price","Quantity","Date","Rating")
+      .orderBy("Date")
+      .show()
 
     /**
      * Q8 : find the largest and smallest Rating for every city
