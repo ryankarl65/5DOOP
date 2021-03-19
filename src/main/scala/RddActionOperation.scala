@@ -5,7 +5,11 @@ object RddActionOperation {
 
     /** Q1:  create a SparkSession* */
     //Answer your question Q1 :
-    val spark: SparkSession = SparkSession.builder().master("local").appName("5DOOP").getOrCreate()
+    val spark: SparkSession = SparkSession
+      .builder()
+      .master("local")
+      .appName("5DOOP")
+      .getOrCreate()
     val sc = spark.sparkContext
 
     /**
@@ -38,8 +42,8 @@ object RddActionOperation {
      *         2. do rdd union for rdd1 and rdd2
      *         3. do rdd intersection for rdd1 and rdd2
      * */
-    val rdd1 = spark.sparkContext.parallelize(Array("coffe", "apple", "animal", "horse", "dog", "horse", "dog"))
-    val rdd2 = spark.sparkContext.parallelize(Array("coffe", "cup", "world"))
+    val rdd1 = sc.parallelize(Array("coffe", "apple", "animal", "horse", "dog", "horse", "dog"))
+    val rdd2 = sc.parallelize(Array("coffe", "cup", "world"))
     //Answer your question Q4 :
     val noDuplicateRdd1 = rdd1.distinct()
     val noDuplicateRdd2 = rdd2.distinct()

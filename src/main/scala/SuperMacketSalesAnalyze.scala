@@ -13,7 +13,11 @@ object SuperMacketSalesAnalyze {
 
     /** Q1:  create a SparkSession* */
     //Answer your question Q1 :
-    val spark: SparkSession = SparkSession.builder().master("local").appName("5DOOP").getOrCreate()
+    val spark: SparkSession = SparkSession
+      .builder()
+      .master("local")
+      .appName("5DOOP")
+      .getOrCreate()
     val sc = spark.sparkContext
 
 
@@ -45,7 +49,9 @@ object SuperMacketSalesAnalyze {
      * Q5 : find the line that have the Rating more than 9 and order them by rating and branch
      * */
     //Answer your question Q5 :
-    df.where("Rating>9").orderBy(col("Rating"),col("Branch")).show()
+    df.where("Rating>9")
+      .orderBy(col("Rating"),col("Branch"))
+      .show()
 
 
     /**
@@ -69,10 +75,14 @@ object SuperMacketSalesAnalyze {
     //Answer your question Q8 :
 
     //largest Rating
-    df.groupBy("City").agg(max("Rating")).show()
+    df.groupBy("City")
+      .agg(max("Rating"))
+      .show()
 
     //Smallest Rating
-    df.groupBy("City").agg(min("Rating")).show()
+    df.groupBy("City")
+      .agg(min("Rating"))
+      .show()
 
 
 
