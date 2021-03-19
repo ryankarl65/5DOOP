@@ -19,7 +19,6 @@ object SuperMacketSalesAnalyze {
       .master("local")
       .appName("5DOOP")
       .getOrCreate()
-    val sc = spark.sparkContext
 
 
     /** Q2: create a DataFrame object based on the csv file : supermarket_sales * */
