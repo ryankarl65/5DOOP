@@ -1,5 +1,6 @@
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions.{col, _}
+import org.apache.spark.sql.types.TimestampType
 
 object SuperMacketSalesAnalyze {
 
@@ -67,6 +68,8 @@ object SuperMacketSalesAnalyze {
      * You need to convert the 'Date' column's format from String to Date and reorder them by Date column
      */
     //Answer your question Q7 :
+    val dfQ7 = df.withColumn("Date", unix_timestamp(col("Date"),"MM/dd/yyyy").cast(TimestampType))
+    dfQ7.select("Invoice ID","Branch","City","Unit","price","Quantity","Date","Rating").orderBy("Date").show()
 
     /**
      * Q8 : find the largest and smallest Rating for every city
